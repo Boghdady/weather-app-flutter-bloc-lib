@@ -35,6 +35,8 @@ class _WeatherDetailScreenState extends State<WeatherDetailScreen> {
               return buildLoading();
             } else if (state is WeatherLoaded) {
               return buildColumnWithData(context, state.weather);
+            } else {
+              return Container();
             }
           },
         ),
@@ -61,7 +63,7 @@ class _WeatherDetailScreenState extends State<WeatherDetailScreen> {
         ),
         Text(
           // Display the Celsius temperature with 1 decimal place
-          "${weather.temperaturCelsius.toStringAsFixed(1)} °C",
+          "${weather.temperatureCelsius.toStringAsFixed(1)} °C",
           style: TextStyle(fontSize: 80),
         ),
         Text(

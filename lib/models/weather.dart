@@ -3,12 +3,12 @@ import 'package:flutter/foundation.dart';
 
 class Weather extends Equatable {
   final String cityName;
-  final double temperaturCelsius;
+  final double temperatureCelsius;
   final double temperatureFahrenheit;
 
   Weather({
     @required this.cityName,
-    @required this.temperaturCelsius,
+    @required this.temperatureCelsius,
     this.temperatureFahrenheit,
   });
 
@@ -16,6 +16,6 @@ class Weather extends Equatable {
   List<Object> get props => [
         cityName,
         temperatureFahrenheit,
-        temperaturCelsius,
+        temperatureCelsius,
       ];
 }

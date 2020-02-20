@@ -32,7 +32,7 @@ class WeatherSearchScreen extends StatelessWidget {
               return buildLoading();
             } else if (state is WeatherLoaded) {
               return buildColumnWithData(context, state.weather);
-            } else if (state is WeatherError) {
+            } else {
               return buildInitialInput();
             }
           }),
@@ -67,7 +67,7 @@ class WeatherSearchScreen extends StatelessWidget {
         ),
         Text(
           // Display the temperature with 1 decimal place
-          "${weather.temperaturCelsius.toStringAsFixed(1)} °C",
+          "${weather.temperatureCelsius.toStringAsFixed(1)} °C",
           style: TextStyle(fontSize: 80),
         ),
         RaisedButton(
@@ -76,6 +76,7 @@ class WeatherSearchScreen extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
+                // Send  instance of current WeatherBloc to WeatherDetailsScreen
                 builder: (_) => BlocProvider.value(
                   value: BlocProvider.of<WeatherBloc>(context),
                   child: WeatherDetailScreen(

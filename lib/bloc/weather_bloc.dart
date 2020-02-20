@@ -24,7 +24,9 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     if (event is GetWeatherEvent) {
       try {
         // Emitting either Loaded or Error
+        print(event.cityName);
         final weather = await repository.fetchWeather(event.cityName);
+        print(weather.cityName);
         yield WeatherLoaded(weather);
       } on NetworkError {
         yield WeatherError('Could not fetch weather. Is the device online?');
